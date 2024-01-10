@@ -1,0 +1,33 @@
+﻿@model EgitimPortalFinal.Models.Course
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div style="margin-top:50px">
+    <dl class="row">
+        <dd class="col-sm-10">
+            <h1>@Html.DisplayFor(model => model.Title)</h1>
+        </dd>
+        <dd class="col-sm-10">
+            <h5>@Html.DisplayFor(model => model.Description)</h5>
+        </dd>
+        <dd class="col-sm-10">
+            <img src="~/CoursePhotos/@Model.PhotoUrl" style="width:1000px; height:300px">
+        </dd>
+        <dd class="col-sm-10">
+            @{
+                var paragraphs = Model.Content.Split(new[] { "\r\n\r\n" }, StringSplitOptions.None);
+                foreach (var paragraph in paragraphs)
+                {
+                    <p style="font-size:larger; font-weight:400" id="article">@Html.Raw(paragraph)</p>
+                }
+            }
+        </dd>
+    </dl>
+</div>
+
+
+
+<a href="#"> <i class="arrow up"></i></a>
+

@@ -1,0 +1,32 @@
+﻿﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor Accessor
+<ul class="navbar-nav" style="font-family:TRT">
+    @if (User.Identity.IsAuthenticated)
+    {
+
+        <li class="nav-item">
+            <a class="nav-link text-white">
+                Merhaba @User.Identity.Name!
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Logout">Oturumu Kapat</a>
+        </li>
+            @if (User.IsInRole("admin"))
+            {
+            <li class="nav-item">
+                <a class="nav-link text-white" asp-area="" asp-controller="Admin" asp-action="List">Admin Panel</a>
+            </li>
+            }
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Login">Oturum Aç</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Register">Kayıt Ol</a>
+        </li>
+
+    }
+</ul>

@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Kullanıcının Rolünü Düzenle";
+    Layout = "_layoutAdminLTE";
+
+}
+
+@model List<AppUser>
+
+<div class="col-md-10">
+    <h2 style="margin-left:250px; margin-top:30px">Kullanıcı Rolü Düzenle</h2>
+
+    <table class="table" style="margin-left:250px; margin-top:40px">
+        <thead>
+            <tr>
+                <th>Kullanıcı Adı</th>
+                <th>Rol</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="userId" value="@user.Id" />
+                            <select name="selectedRoles" class="form-select form-select-sm" aria-label="Small select example">
+                                @foreach (var role in ViewBag.Roles)
+                                {
+                                    <option value="@role.Name">@role.Name</option>
+                                }
+                            </select>
+                            <button type="submit" class="btn btn-success" style="margin-left:200px">Güncelle</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

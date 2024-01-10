@@ -1,0 +1,33 @@
+﻿@model IEnumerable<EgitimPortalFinal.Models.Course>
+@{
+    ViewData["Title"] = "Frontend";
+}
+
+<table>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item.Tag == "Frontend")
+            {
+                <tr>
+                    <td>
+                        <img src="~/CoursePhotos/@item.PhotoUrl" style="width:600px; height:200px">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id" style="text-decoration:none; color:black;"><h4>@Html.DisplayFor(modelItem => item.Title)</h4></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>@Html.DisplayFor(modelItem => item.Description)</p><hr style="border-style:outset; border-width:4px">
+                </td>
+            </tr> }
+        }
+    </tbody>
+    </table>
+                                     
+       
+
+

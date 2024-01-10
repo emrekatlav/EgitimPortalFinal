@@ -1,0 +1,52 @@
+﻿@model EgitimPortalFinal.Models.Course
+
+@{
+    ViewData["Title"] = "Sil";
+    Layout = "_layoutAdminLTE";
+}
+
+<h1 style="margin-left:270px">Haber Sil</h1>
+
+<h3 style="margin-left:270px">Bu Haberi Silmek İstediğinize Emin Misiniz?</h3>
+<div>
+    <h4>Haberler</h4>
+    <hr />
+    <dl class="row" style="margin-left:270px">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.Raw(Model.Content.Length > 800 ? Model.Content.Substring(0, 800) + "..." : Model.Content)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tag)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tag)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PhotoUrl)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PhotoUrl)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete" style="margin-left:275px">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="List" class="btn btn-secondary">Geri Dön</a>
+    </form>
+</div>

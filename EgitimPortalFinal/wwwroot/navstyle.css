@@ -1,0 +1,38 @@
+#trt {
+    font-family: TRT
+}
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 60px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 60%;
+  }
+
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+    .fa:link, .fa:visited, .fa:active, .fa:visited:active {
+        color: white
+    }
+.arrow {
+    border: solid black;
+    border-width: 0 10px 10px 0;
+    display: inline-block;
+    padding: 3px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 10px;
+    float: right;
+    right: 18.5%;
+    left: 77.25%;
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}    
+
